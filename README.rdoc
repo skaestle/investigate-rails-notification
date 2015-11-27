@@ -1,28 +1,16 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app showcases an error with `ActiveSupport::Notification` where fanout dies out because of missing initialization of `Thread.current[:_timestack]]`
 
-Things you may want to cover:
+To see it in action:
 
-* Ruby version
+* `bundle install`
+* `rake db:create`
+* `rake db:migrate`
+* `rails server`
 
-* System dependencies
+now visit `localhosts:3000/posts`. the first visit will result in:
 
-* Configuration
+`undefined method `pop' for nil:NilClass` thrown in `activesupport (4.2.5) lib/active_support/notifications/fanout.rb:126:in `finish'`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+the second visit to the page will work.
