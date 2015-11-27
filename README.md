@@ -1,4 +1,4 @@
-== README
+# README
 
 This app showcases an error with `ActiveSupport::Notification` where fanout dies out because of missing initialization of `Thread.current[:_timestack]]`
 
